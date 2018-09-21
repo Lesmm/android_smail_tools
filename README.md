@@ -22,4 +22,4 @@
 2. Settings(Alt+Ctrl+S) -> Plugins -> Install plugin from disk..., download [smalidea.zip](https://bitbucket.org/JesusFreke/smali/downloads/) install and restart
 3. File -> New -> Import Project... -> Reference to folder 'com.xxx.xxx'. (Do not used by Eclipse proj)
 4. Issue for example: adb shell am start -D -n package_name/main_activity
-5. Then add a Remote Run/Debug Configuration, set port to 8700. Make some breakpoints. 
+5. Make some breakpoints. Create a Remote Debug Configuration, set port to 8700 and hit 'Debug' button. Or jus hit 'Attatch debugger to Android process' button 
