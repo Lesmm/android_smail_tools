@@ -12,7 +12,13 @@
     apk.sh com.xxx.xxx.apk	// it will generate the folder 'com.xxx.xxx', the smali codes in it
 
 
-### Third. Modify Smali codes、Debug、Pack/Repack apk.
+### Third. Install java2smali to Android Studio:
+
+	1. Settings(Alt+Ctrl+S) -> Plugins -> Search java2smali, install and restart
+	2. Reference: https://github.com/ollide/intellij-java2smali
+
+
+### Fourth. Modify Smali codes、Debug、Pack/Repack apk.
 	
 	1. New a JavaSE Porject
 	2. Unchecked 'Use default location'
