@@ -1,14 +1,14 @@
 
 ## Usage
 
-### First. Connect your device(root) to your PC:
+### 1. Connect your device(root) to your PC:
 
 	adb root
 	adb shell ls /data/app
 
 
 
-### Second. Modify Smali codes、Debug、Pack/Repack apk.
+### 2. Modify Smali codes、Debug、Pack/Repack apk in Eclipse
 	
 	apk.sh com.xxx.xxx.apk	// it will generate the folder 'com.xxx.xxx', the smali codes in it
 	1. New a JavaSE Porject
@@ -16,8 +16,10 @@
 	3. Reference to folder 'com.xxx.xxx'.
 
 
-### Fourth. Install java2smali to Android Studio:
+### 3. Install java2smali, debug in Android Studio
 
-	1. Settings(Alt+Ctrl+S) -> Plugins -> Search java2smali, install and restart
-	2. Reference: https://github.com/ollide/intellij-java2smali
-	3. File -> New -> Import Project... -> Reference to new dumped folder 'com.xxx.xxx'.
+	1. Settings(Alt+Ctrl+S) -> Plugins -> Search (java2smali)[https://github.com/ollide/intellij-java2smali], install and restart.
+	2. Settings(Alt+Ctrl+S) -> Plugins -> Install plugin from disk..., download (smalidea.zip)[https://bitbucket.org/JesusFreke/smali/downloads/] install and restart
+	3. File -> New -> Import Project... -> Reference to folder 'com.xxx.xxx'. (Do not used by Eclipse proj)
+	4. Issue for example: adb shell am start -D -n package_name/main_activity
+	5. Then add a Remote Run/Debug Configuration, set port to 8700. Make some breakpoints. 
