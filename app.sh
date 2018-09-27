@@ -89,8 +89,13 @@ ilog "Get the package name: $packageName"
 
 # get the main activity name
 mainActivityName=`cat $manifestfileName  | grep -B 5 "android.intent.action.MAIN" | grep "android:name" | awk -F "android:name" '{print $2}' | awk -F "\"" '{print $2}' | tail -2 | head -1`
-mainActivityPath=$packageName/$mainActivityName
+if [[ $mainActivityName =~ "." ]]; then
+	echo ''
+else
+	mainActivityName=".${mainActivityName}"
+fi
 ilog "Get the main activity name: $mainActivityName"
+mainActivityPath=$packageName/$mainActivityName
 
 
 
@@ -101,7 +106,7 @@ echo "$applicationString" | grep -q "$tmpString"
 if [ $? -eq 1 ]; then
 	ilog "Inserting android:debuggable='true' flag"
 	sed -i -e 's/<application /<application android:debuggable="true" /g' $manifestfileName
-	ilog "Insert android:debuggable=\"true\" to AndroidManifest.xml"
+	ilog "Inserted android:debuggable=\"true\" to AndroidManifest.xml"
 else
 	ilog "No need to insert android:debuggable=\"true\" to AndroidManifest.xml"
 fi
